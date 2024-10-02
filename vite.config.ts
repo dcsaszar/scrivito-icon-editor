@@ -15,6 +15,7 @@ export default defineConfig({
     rollupOptions: {
       external: ['react', 'react-dom', 'scrivito'],
       output: {
+        assetFileNames: 'editing.css',
         globals: {
           'react-dom': 'ReactDOM',
           react: 'React',

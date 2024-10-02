@@ -5,31 +5,52 @@ import { AllIcons } from './AllIcons'
 import { IconSearch } from './IconSearch'
 import { IconSearchResults } from './IconSearchResults'
 import { getIconColor } from './getIconColor'
+import './IconEditorTab.scss'
 
 export function ScrivitoIconEditor({ widget }: { widget: Scrivito.Widget }) {
+  return (
+    <SelectBootstrapIcon
+      currentIcon={widget.get('icon') as string}
+      iconColor={getIconColor(widget)}
+      updateIcon={(icon: string) => {
+        widget.update({ icon })
+      }}
+      theme={Scrivito.uiContext()?.theme}
+      readonly={!Scrivito.canWrite()}
+    />
+  )
+}
+
+export function SelectBootstrapIcon({
+  currentIcon,
+  iconColor,
+  updateIcon,
+  theme,
+  readonly,
+  description,
+}: {
+  currentIcon: string
+  iconColor?: string
+  updateIcon: (newIcon: string) => void
+  theme?: 'dark' | 'light'
+  readonly?: boolean
+  description?: string
+}) {
   const [searchValue, setSearchValue] = React.useState('')
-  const currentIcon = widget.get('icon') as string
-  const color = getIconColor(widget)
-  const uiContext = Scrivito.uiContext()
-  if (!uiContext) return null
 
   return (
-    <div className={`scrivito_${uiContext.theme}`}>
+    <div className={`scrivito_${theme ?? 'dark'}`}>
       <div className="neoletter-form-icon-editor-tab">
+        <div className="scrivito_notice_body">{description}</div>
         <div className="scrivito_detail_content">
           <div className="scrivito_detail_label">
             <span>Preview</span>
           </div>
           <div className="icon-editor-preview">
-            <i
-              className={`bi ${currentIcon}`}
-              style={{
-                color: color,
-              }}
-            ></i>
+            <i className={`bi ${currentIcon}`} style={{ color: iconColor }}></i>
           </div>
 
-          {Scrivito.canWrite() && (
+          {!readonly && (
             <>
               <IconSearch
                 searchValue={searchValue}
@@ -59,6 +80,6 @@ export function ScrivitoIconEditor({ widget }: { widget: Scrivito.Widget }) {
   function setWidgetIcon(event: React.BaseSyntheticEvent, icon: string): void {
     event.preventDefault()
     event.stopPropagation()
-    widget.update({ icon })
+    updateIcon(icon)
   }
 }
