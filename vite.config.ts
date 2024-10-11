@@ -8,7 +8,7 @@ export default defineConfig({
   plugins: [react(), dts()],
   build: {
     lib: {
-      entry: resolve(__dirname, 'src/index.tsx'),
+      entry: resolve(__dirname, 'src/index.ts'),
       name: 'scrivito-icon-editor',
       fileName: 'index',
     },
