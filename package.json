@@ -22,6 +22,7 @@
     "preview": "vite preview"
   },
   "peerDependencies": {
+    "bootstrap-icons": "*",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "scrivito": "^1.0.0"
