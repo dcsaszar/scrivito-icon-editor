@@ -45,7 +45,7 @@ const IconPropertiesGroupComponent = connect(
 
     return theme ? (
       <div
-        className={`scrivito_${theme} scrivito_detail_content icon-editor-tab`}
+        className={`scrivito_${theme} scrivito_detail_content scrivito-icon-editor`}
       >
         <div className="scrivito_notice_body">{description}</div>
         <div className="scrivito_detail_label">
