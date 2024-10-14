@@ -1,6 +1,6 @@
 # Scrivito Icon Editor
 
-The `scrivito-icon-editor` is a versatile icon picker designed for seamless integration with [Scrivito](https://www.scrivito.com) and React applications. It supports Bootstrap Icons out of the box but can work with any icon set. Easily integrate it into your projects to add icons with custom styling and functionality.
+The `scrivito-icon-editor` is a versatile icon picker designed for seamless integration with [Scrivito](https://www.scrivito.com) and React applications. It supports [Bootstrap Icons](https://icons.getbootstrap.com) out of the box but can work with any icon set. Easily integrate it into your projects to add icons with custom styling and functionality.
 
 ## Installation
 
@@ -57,9 +57,9 @@ export const defaultPagePropertiesGroups = [
 - **description**: (string) A description for the icon picker field.
 - **showClearButton**: (boolean) If true, shows a button to clear the selected icon. Default: false
 
-### Standalone icon picker
+### Standalone Bootstrap icon picker
 
-The icon picker works with any React application and any icon set. It has built-in support for Bootstrap Icons, allowing for quick integration. For custom styling, include the necessary CSS to easily adjust the appearance to match your app’s design.
+The Bootstrap icon picker features built-in support for Bootstrap Icons, making it easy to integrate into your React application. To customize its appearance, simply include the necessary CSS in your project. This allows you to quickly enhance your app with the rich selection of Bootstrap Icons available while tailoring the design to fit your app’s aesthetic.
 
 ```tsx
 import { BootstrapIconPicker } from 'scrivito-icon-editor'
@@ -76,6 +76,17 @@ function BoostrapIconPickerDemo() {
   )
 }
 ```
+
+#### Available options
+
+- **disabled**: (boolean) Disables the icon picker if set to true. Default: false
+- **onChange**: (function) A callback function triggered when the selected icon changes. Receives the new icon as an argument.
+- **showClearButton**: (boolean) If true, shows a button to clear the selected icon. Default: false
+- **value**: (string | undefined) The currently selected icon.
+
+### Standalone generic icon picker
+
+The generic icon picker is designed to work seamlessly with any React application and any icon set, providing you with the flexibility to choose icons that best suit your project’s needs. For optimal styling, ensure to include the relevant CSS to adjust the picker’s appearance according to your design requirements.
 
 ```tsx
 import { IconPicker } from 'scrivito-icon-editor'
@@ -97,7 +108,6 @@ function IconPickerDemo() {
 
 #### Available options
 
-- **description**: (string) A description for the icon picker field.
 - **disabled**: (boolean) Disables the icon picker if set to true. Default: false
 - **icons**: (string[]) An array of available icons to pick from.
 - **onChange**: (function) A callback function triggered when the selected icon changes. Receives the new icon as an argument.
