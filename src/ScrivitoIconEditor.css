@@ -157,6 +157,12 @@
     }
   }
 
+  &:after {
+    content: '';
+    clear: right;
+    display: block;
+  }
+
   &.scrivito_dark {
     --icon-preview-background: #5a5a5a;
     --icon-preview-color: #eee;
