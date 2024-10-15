@@ -32,18 +32,20 @@ provideEditingConfig(IconWidget, {
 
 #### With options
 
-```ts
-// defaultPageEditingConfig.ts
-import { getScrivitoBootstrapIconEditor } from 'scrivito-icon-editor'
+```tsx
+// defaultPageEditingConfig.tsx
+import { ScrivitoBootstrapIconEditor } from 'scrivito-icon-editor'
 
 export const defaultPagePropertiesGroups = [
   {
-    component: getScrivitoBootstrapIconEditor({
-      attribute: 'linkIcon',
-      description:
-        'This icon may appear in a vertical navigation widget, for example.',
-      showClearButton: true,
-    }),
+    component: (props: { page: Obj }) => (
+      <ScrivitoBootstrapIconEditor
+        attribute="linkIcon"
+        description="This icon may appear in a vertical navigation widget, for example."
+        showClearButton
+        {...props}
+      />
+    ),
     key: 'icon-group',
     properties: ['linkIcon'],
     title: 'Icon',
@@ -51,12 +53,15 @@ export const defaultPagePropertiesGroups = [
 ]
 ```
 
-##### Available options
+#### Available options
 
 - **attribute**: (string) The attribute where the icon is stored. Default: icon
 - **defaultValue**: (string) The fallback icon displayed when no icon is set. When this option is enabled, the clear button is disabled. Default: undefined
 - **description**: (string) A description for the icon picker field.
+- **obj**: (Obj) The CMS object where the icon attribute is stored.
+- **page**: (Obj) The page where the icon attribute is stored.
 - **showClearButton**: (boolean) If true, shows a button to clear the selected icon. Default: false
+- **widget**: (Widget) The widget where the icon attribute is stored.
 
 ### Standalone Bootstrap icon picker
 

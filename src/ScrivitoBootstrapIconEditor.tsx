@@ -3,45 +3,28 @@ import { uiContext, canEdit, connect } from 'scrivito'
 import { BootstrapIconPicker } from './BootstrapIconPicker.js'
 import './ScrivitoIconEditor.css'
 
-export function ScrivitoBootstrapIconEditor(
-  props: PropertiesGroupProps,
-): JSX.Element {
-  return <IconPropertiesGroupComponent {...props} />
-}
-
-export function getScrivitoBootstrapIconEditor(iconEditorProps: {
-  attribute?: string
-  defaultValue?: string
-  description?: string
-  previewTitle?: string
-  showClearButton?: boolean
-}): (props: PropertiesGroupProps) => JSX.Element {
-  return function ScrivitoBootstrapIconEditor(props: PropertiesGroupProps) {
-    return <IconPropertiesGroupComponent {...iconEditorProps} {...props} />
-  }
-}
-
-type PropertiesGroupProps =
-  | { obj?: never; widget: Widget }
-  | { obj: Obj; widget?: never }
-
-const IconPropertiesGroupComponent = connect(
-  function IconPropertiesGroupComponent({
+export const ScrivitoBootstrapIconEditor = connect(
+  function ScrivitoBootstrapIconEditor({
     attribute,
     description,
     obj,
+    page,
     previewTitle,
     widget,
     ...props
-  }: PropertiesGroupProps & {
+  }: {
     attribute?: string
     defaultValue?: string
     description?: string
     previewTitle?: string
     showClearButton?: boolean
-  }) {
+  } & (
+    | { obj: Obj; page?: Obj; widget?: never }
+    | { obj?: Obj; page: Obj; widget?: never }
+    | { obj?: never; page?: never; widget: Widget }
+  )): JSX.Element | null {
     const attributeName = attribute || 'icon'
-    const content = obj || widget
+    const content = obj || page || widget
     const value = content.get(attributeName)
     const theme = uiContext()?.theme
 
@@ -54,7 +37,7 @@ const IconPropertiesGroupComponent = connect(
           <span>{previewTitle ?? 'Preview'}</span>
         </div>
         <BootstrapIconPicker
-          disabled={!canEdit(obj || widget.obj())}
+          disabled={!canEdit(obj || page || widget.obj())}
           onChange={(name) =>
             content.update({ [attributeName]: name ? `bi-${name}` : '' })
           }
