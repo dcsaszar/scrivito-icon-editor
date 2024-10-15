@@ -54,6 +54,7 @@ export const defaultPagePropertiesGroups = [
 ##### Available options
 
 - **attribute**: (string) The attribute where the icon is stored. Default: icon
+- **defaultValue**: (string) The fallback icon displayed when no icon is set. When this option is enabled, the clear button is disabled. Default: undefined
 - **description**: (string) A description for the icon picker field.
 - **showClearButton**: (boolean) If true, shows a button to clear the selected icon. Default: false
 
@@ -79,6 +80,7 @@ function BoostrapIconPickerDemo() {
 
 #### Available options
 
+- **defaultValue**: (string) The fallback icon displayed when no icon is set. When this option is enabled, the clear button is disabled. Default: undefined
 - **disabled**: (boolean) Disables the icon picker if set to true. Default: false
 - **onChange**: (function) A callback function triggered when the selected icon changes. Receives the new icon as an argument.
 - **showClearButton**: (boolean) If true, shows a button to clear the selected icon. Default: false
@@ -108,6 +110,7 @@ function IconPickerDemo() {
 
 #### Available options
 
+- **defaultValue**: (string) The fallback icon displayed when no icon is set. When this option is enabled, the clear button is disabled. Default: undefined
 - **disabled**: (boolean) Disables the icon picker if set to true. Default: false
 - **icons**: (string[]) An array of available icons to pick from.
 - **onChange**: (function) A callback function triggered when the selected icon changes. Receives the new icon as an argument.

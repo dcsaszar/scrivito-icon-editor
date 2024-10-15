@@ -1,6 +1,7 @@
 import { useId, useState } from 'react'
 
 export function IconPicker({
+  defaultValue,
   disabled,
   icons,
   onChange,
@@ -8,6 +9,7 @@ export function IconPicker({
   showClearButton,
   value,
 }: {
+  defaultValue?: string
   disabled?: boolean
   icons: string[]
   onChange: (value: string | undefined) => void
@@ -18,6 +20,7 @@ export function IconPicker({
   const [matchingIcons, setMatchingIcons] = useState(icons)
   const inputId = useId()
   const searchLabel = 'Search'
+  const activeIcon = value || defaultValue
 
   return (
     <div className="icon-picker">
@@ -25,11 +28,11 @@ export function IconPicker({
         aria-label={disabled ? undefined : searchLabel}
         className="icon-preview"
         htmlFor={inputId}
-        title={value}
+        title={activeIcon}
       >
-        {renderFunc(value)}
+        {renderFunc(activeIcon)}
       </label>
-      {!disabled && showClearButton && value && (
+      {!disabled && !defaultValue && showClearButton && value && (
         <button className="icon-clear" onClick={() => onChange(undefined)}>
           ❌
         </button>
@@ -40,14 +43,14 @@ export function IconPicker({
             <input
               id={inputId}
               onChange={(e) => search(e.target.value.trim().split(/\s+/))}
-              placeholder={value}
+              placeholder={activeIcon || ''}
               type="search"
             />
           </label>
           <div className="icon-select">
             {matchingIcons.map((icon) => (
               <button
-                className={icon === value ? 'active' : undefined}
+                className={icon === activeIcon ? 'active' : undefined}
                 key={icon}
                 onClick={() => onChange(icon)}
                 title={icon}

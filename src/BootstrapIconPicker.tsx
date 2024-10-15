@@ -4,6 +4,7 @@ import codepoints from 'bootstrap-icons/font/bootstrap-icons.json' with { type: 
 import 'bootstrap-icons/font/bootstrap-icons.css'
 
 export function BootstrapIconPicker(props: {
+  defaultValue?: string
   disabled?: boolean
   onChange: (value?: string) => void
   showClearButton?: boolean

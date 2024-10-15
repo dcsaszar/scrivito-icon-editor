@@ -11,6 +11,7 @@ export function ScrivitoBootstrapIconEditor(
 
 export function getScrivitoBootstrapIconEditor(iconEditorProps: {
   attribute?: string
+  defaultValue?: string
   description?: string
   previewTitle?: string
   showClearButton?: boolean
@@ -30,10 +31,11 @@ const IconPropertiesGroupComponent = connect(
     description,
     obj,
     previewTitle,
-    showClearButton,
     widget,
+    ...props
   }: PropertiesGroupProps & {
     attribute?: string
+    defaultValue?: string
     description?: string
     previewTitle?: string
     showClearButton?: boolean
@@ -56,10 +58,10 @@ const IconPropertiesGroupComponent = connect(
           onChange={(name) =>
             content.update({ [attributeName]: name ? `bi-${name}` : '' })
           }
-          showClearButton={showClearButton}
           value={
             typeof value === 'string' ? value.replace(/^bi-/, '') : undefined
           }
+          {...props}
         />
       </div>
     ) : null
