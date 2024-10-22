@@ -1,7 +1,6 @@
 import { useMemo } from 'react'
 import { IconPicker } from './IconPicker.js'
 import codepoints from 'bootstrap-icons/font/bootstrap-icons.json' with { type: 'json' }
-import 'bootstrap-icons/font/bootstrap-icons.css'
 
 export function BootstrapIconPicker(props: {
   defaultValue?: string

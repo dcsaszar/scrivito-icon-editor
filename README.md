@@ -68,6 +68,7 @@ export const defaultPagePropertiesGroups = [
 The Bootstrap icon picker features built-in support for Bootstrap Icons, making it easy to integrate into your React application. To customize its appearance, simply include the necessary CSS in your project. This allows you to quickly enhance your app with the rich selection of Bootstrap Icons available while tailoring the design to fit your app’s aesthetic.
 
 ```tsx
+import 'bootstrap-icons/font/bootstrap-icons.css'
 import { BootstrapIconPicker } from 'scrivito-icon-editor'
 
 function BoostrapIconPickerDemo() {
@@ -96,6 +97,8 @@ function BoostrapIconPickerDemo() {
 The generic icon picker is designed to work seamlessly with any React application and any icon set, providing you with the flexibility to choose icons that best suit your project’s needs. For optimal styling, ensure to include the relevant CSS to adjust the picker’s appearance according to your design requirements.
 
 ```tsx
+import 'bootstrap-icons/font/bootstrap-icons.css'
+import 'scrivito-icon-editor/ScrivitoIconEditor.css'
 import { IconPicker } from 'scrivito-icon-editor'
 
 function IconPickerDemo() {

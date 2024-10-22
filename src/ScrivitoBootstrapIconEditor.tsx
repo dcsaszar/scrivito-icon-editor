@@ -1,7 +1,6 @@
 import type { Widget, Obj } from 'scrivito'
 import { uiContext, canEdit, connect } from 'scrivito'
 import { BootstrapIconPicker } from './BootstrapIconPicker.js'
-import './ScrivitoIconEditor.css'
 
 export const ScrivitoBootstrapIconEditor = connect(
   function ScrivitoBootstrapIconEditor({
