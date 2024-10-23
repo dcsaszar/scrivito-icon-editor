@@ -1,24 +1,47 @@
 .scrivito-icon-editor {
-  --icon-preview-background: rgba(255, 255, 255, 0.8);
-  --icon-preview-color: #444;
   --icon-clear-shadow-color: rgba(255, 255, 255, 0.2);
-  --icon-input-background: #fff;
-  --icon-input-color: #555;
+  --icon-description-color: #666;
   --icon-input-active-background: #fff;
   --icon-input-active-color: #555;
+  --icon-input-background: #fff;
+  --icon-input-color: #555;
   --icon-input-placeholder-color: #999;
-  --icon-select-button-background: transparent;
-  --icon-select-button-color: #555;
+  --icon-preview-background: rgba(255, 255, 255, 0.8);
+  --icon-preview-color: #444;
+  --icon-preview-title-font-size: 13px;
+  --icon-preview-title-shadow: none;
+  --icon-primary-color: #507ab5;
   --icon-select-button-active-background: #fff;
   --icon-select-button-active-color: #555;
+  --icon-select-button-background: transparent;
+  --icon-select-button-color: #555;
   --icon-select-button-hover-background: #fafafa;
   --icon-select-button-hover-color: #333;
-  --icon-primary-color: #507ab5;
 
-  .scrivito_notice_body {
+  font-family:
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
+  padding: 15px;
+
+  .description {
+    color: var(--icon-description-color);
     float: right;
+    font-size: 12px;
+    font-weight: bold;
     margin-top: 30px;
+    padding: 0 0 10px;
     width: calc(100% - 70px);
+  }
+
+  .preview-title {
+    color: var(--icon-preview-color);
+    display: block;
+    font-size: var(--icon-preview-title-font-size);
+    font-weight: bold;
+    padding: 7px 3px 6px 3px;
+    text-shadow: var(--icon-preview-title-shadow);
   }
 
   button,
@@ -164,18 +187,24 @@
   }
 
   &.scrivito_dark {
-    --icon-preview-background: #5a5a5a;
-    --icon-preview-color: #eee;
     --icon-clear-shadow-color: rgba(0, 0, 0, 0.8);
-    --icon-input-background: rgba(222, 222, 222, 0.2);
-    --icon-input-color: #ddd;
+    --icon-description-color: #aaa;
     --icon-input-active-background: #eee;
     --icon-input-active-color: #333;
-    --icon-select-button-color: #ddd;
+    --icon-input-background: rgba(222, 222, 222, 0.2);
+    --icon-input-color: #ddd;
+    --icon-preview-background: #5a5a5a;
+    --icon-preview-color: #eee;
+    --icon-preview-title-font-size: 11px;
+    --icon-preview-title-shadow: 0 1px 1px rgba(0, 0, 0, 0.3),
+      0 0 4px rgba(0, 0, 0, 0.2);
     --icon-select-button-active-background: rgba(222, 222, 222, 0.1);
     --icon-select-button-active-color: #eee;
+    --icon-select-button-color: #ddd;
     --icon-select-button-hover-background: rgba(222, 222, 222, 0.2);
     --icon-select-button-hover-color: #fff;
+
+    padding: 7px;
 
     &:has(:placeholder-shown) .icon-select {
       display: none;

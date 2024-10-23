@@ -28,13 +28,9 @@ export const ScrivitoBootstrapIconEditor = connect(
     const theme = uiContext()?.theme
 
     return theme ? (
-      <div
-        className={`scrivito_${theme} scrivito_detail_content scrivito-icon-editor`}
-      >
-        <div className="scrivito_notice_body">{description}</div>
-        <div className="scrivito_detail_label">
-          <span>{previewTitle ?? 'Preview'}</span>
-        </div>
+      <div className={`scrivito_${theme} scrivito-icon-editor`}>
+        <div className="description">{description}</div>
+        <div className="preview-title">{previewTitle ?? 'Preview'}</div>
         <BootstrapIconPicker
           disabled={!canEdit(obj || page || widget.obj())}
           onChange={(name) =>
