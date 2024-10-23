@@ -6,6 +6,7 @@ export function BootstrapIconPicker(props: {
   defaultValue?: string
   disabled?: boolean
   onChange: (value?: string) => void
+  searchLabel?: string
   showClearButton?: boolean
   value?: string
 }) {

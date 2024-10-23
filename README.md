@@ -60,6 +60,7 @@ export const defaultPagePropertiesGroups = [
 - **description**: (string) A description for the icon picker field.
 - **obj**: (Obj) The CMS object where the icon attribute is stored.
 - **page**: (Obj) The page where the icon attribute is stored.
+- **searchLabel**: (string) Accessibility label for icon search inputs. Default: Search
 - **showClearButton**: (boolean) If true, shows a button to clear the selected icon. Default: false
 - **widget**: (Widget) The widget where the icon attribute is stored.
 
@@ -89,6 +90,7 @@ function BoostrapIconPickerDemo() {
 - **defaultValue**: (string) The fallback icon displayed when no icon is set. When this option is enabled, the clear button is disabled. Default: undefined
 - **disabled**: (boolean) Disables the icon picker if set to true. Default: false
 - **onChange**: (function) A callback function triggered when the selected icon changes. Receives the new icon as an argument.
+- **searchLabel**: (string) Accessibility label for icon search inputs. Default: Search
 - **showClearButton**: (boolean) If true, shows a button to clear the selected icon. Default: false
 - **value**: (string | undefined) The currently selected icon.
 
@@ -123,6 +125,7 @@ function IconPickerDemo() {
 - **icons**: (string[]) An array of available icons to pick from.
 - **onChange**: (function) A callback function triggered when the selected icon changes. Receives the new icon as an argument.
 - **renderFunc**: (function) A custom render function to display an icon.
+- **searchLabel**: (string) Accessibility label for icon search inputs. Default: Search
 - **showClearButton**: (boolean) If true, shows a button to clear the selected icon. Default: false
 - **value**: (string | undefined) The currently selected icon.
 

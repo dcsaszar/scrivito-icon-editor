@@ -16,6 +16,7 @@ export const ScrivitoBootstrapIconEditor = connect(
     defaultValue?: string
     description?: string
     previewTitle?: string
+    searchLabel?: string
     showClearButton?: boolean
   } & (
     | { obj: Obj; page?: Obj; widget?: never }

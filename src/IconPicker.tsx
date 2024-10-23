@@ -6,6 +6,7 @@ export function IconPicker({
   icons,
   onChange,
   renderFunc,
+  searchLabel,
   showClearButton,
   value,
 }: {
@@ -14,18 +15,19 @@ export function IconPicker({
   icons: string[]
   onChange: (value: string | undefined) => void
   renderFunc: (value?: string) => JSX.Element
+  searchLabel?: string
   showClearButton?: boolean
   value?: string
 }) {
   const [matchingIcons, setMatchingIcons] = useState(icons)
   const inputId = useId()
-  const searchLabel = 'Search'
   const activeIcon = value || defaultValue
+  const ariaSearchLabel = searchLabel ?? 'Search'
 
   return (
     <div className="icon-picker">
       <label
-        aria-label={disabled ? undefined : searchLabel}
+        aria-label={disabled ? undefined : ariaSearchLabel}
         className="icon-preview"
         htmlFor={inputId}
         title={activeIcon}
@@ -39,7 +41,7 @@ export function IconPicker({
       )}
       {!disabled && (
         <div className="icon-dialog">
-          <label className="icon-search" aria-label={searchLabel}>
+          <label className="icon-search" aria-label={ariaSearchLabel}>
             <input
               id={inputId}
               onChange={(e) => search(e.target.value.trim().split(/\s+/))}
