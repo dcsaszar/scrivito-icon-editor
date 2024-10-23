@@ -12,10 +12,12 @@ npm install scrivito-icon-editor
 
 ### Bootstrap Icons in a Scrivito application
 
-These components for properties groups come with pre-defined styling included.
+The `ScrivitoBootstrapIconEditor` property group component comes with predefined styling.
 
 ```ts
 // IconWidgetEditingConfig.ts
+import 'bootstrap-icons/font/bootstrap-icons.css'
+import 'scrivito-icon-editor/ScrivitoIconEditor.css'
 import { ScrivitoBootstrapIconEditor } from 'scrivito-icon-editor'
 
 provideEditingConfig(IconWidget, {
@@ -34,6 +36,8 @@ provideEditingConfig(IconWidget, {
 
 ```tsx
 // defaultPageEditingConfig.tsx
+import 'bootstrap-icons/font/bootstrap-icons.css'
+import 'scrivito-icon-editor/ScrivitoIconEditor.css'
 import { ScrivitoBootstrapIconEditor } from 'scrivito-icon-editor'
 
 export const defaultPagePropertiesGroups = [
@@ -60,6 +64,7 @@ export const defaultPagePropertiesGroups = [
 - **description**: (string) A description for the icon picker field.
 - **obj**: (Obj) The CMS object where the icon attribute is stored.
 - **page**: (Obj) The page where the icon attribute is stored.
+- **previewTitle**: (string) Title of the icon preview element. Default: Preview
 - **searchLabel**: (string) Accessibility label for icon search inputs. Default: Search
 - **showClearButton**: (boolean) If true, shows a button to clear the selected icon. Default: false
 - **widget**: (Widget) The widget where the icon attribute is stored.
@@ -99,8 +104,6 @@ function BoostrapIconPickerDemo() {
 The generic icon picker is designed to work seamlessly with any React application and any icon set, providing you with the flexibility to choose icons that best suit your project’s needs. For optimal styling, ensure to include the relevant CSS to adjust the picker’s appearance according to your design requirements.
 
 ```tsx
-import 'bootstrap-icons/font/bootstrap-icons.css'
-import 'scrivito-icon-editor/ScrivitoIconEditor.css'
 import { IconPicker } from 'scrivito-icon-editor'
 
 function IconPickerDemo() {
